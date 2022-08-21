@@ -1,0 +1,5 @@
+<launch>
+  <arg name="node_start_delay" default="1.0" /> <!-- Delay of 5 seconds to let RViz come up -->
+  <node name="object_visualizer" pkg="object_visualizer" type="object_visualizer.py" output="screen" launch-prefix="bash -c 'sleep $(arg node_start_delay); $0 $@'"/>
+  <node type="rviz" name="rviz" pkg="rviz" args="-d $(find object_visualizer)/launch/visualization.rviz" />
+</launch>
