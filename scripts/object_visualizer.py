@@ -15,13 +15,12 @@ publisher = rospy.Publisher('visualization_marker', MarkerArray, queue_size=1)
 
 current_file_count = 0
 while not rospy.is_shutdown():
-    files = [file for file in os.listdir(visualizer_path) if
-             file.endswith(('.dae', '.stl', '.mesh'))]  # find all meshes in the 'meshes' folder
+    files = [file for file in os.listdir(visualizer_path) if file.endswith(('.dae', '.stl', '.mesh'))]  # find all meshes in the 'meshes' folder
     if len(files) != current_file_count:  # if the number of valid meshed in the 'meshes' folder has changed
         if len(files) < current_file_count:  # if some markers are removed from the 'meshes' folder, delete them in RViz
             marker = Marker()
             marker.header.frame_id = 'map'
-            marker.action = marker.DELETEALL
+            marker.action = marker.DELETEALL # send the DELETEALL marker to delete all marker in RViz
             markerArray.markers.append(marker)
             publisher.publish(markerArray)
 
