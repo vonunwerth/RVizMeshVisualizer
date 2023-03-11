@@ -43,6 +43,6 @@ while not rospy.is_shutdown():
             marker.pose.orientation.w = 1.0
             markerArray.markers.append(marker)
 
-    rospy.loginfo('Published %d objects. ', len(markerArray.markers))
+    # rospy.loginfo('Published %d objects. ', len(markerArray.markers))
     publisher.publish(markerArray)
     rate.sleep()
