@@ -33,8 +33,7 @@ while not rospy.is_shutdown():
             rospy.loginfo('Loading file: %s', file)
             marker = Marker()
             marker.id = marker_id
-            # marker.mesh_resource = "file://" + visualizer_path + "/" + file
-            marker.mesh_resource = "file:/" + os.path.join(visualizer_path, file)
+            marker.mesh_resource = "file://" + visualizer_path + "/" + file
             marker.mesh_use_embedded_materials = True  # Need this to use textures for mesh
             marker.type = marker.MESH_RESOURCE
             marker.header.frame_id = frame
