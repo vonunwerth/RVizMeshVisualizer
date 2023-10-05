@@ -5,7 +5,7 @@ import rospkg
 from visualization_msgs.msg import MarkerArray, Marker
 
 rospy.init_node("object_visualizer")
-rate = rospy.Rate(1)
+rate = rospy.Rate(0.5)
 rospy.loginfo('Initializing object visualizer')
 rp = rospkg.RosPack()
 visualizer_path = os.path.join(rp.get_path('object_visualizer'), 'meshes')
